@@ -4,14 +4,14 @@ workflows:
     max_build_duration: 60
     environment:
       flutter: stable
-      xcode: latest
-      cocoapods: default
     scripts:
       - name: Get Flutter packages
+        working_directory: btc_zones_scanner   # <-- تأكد بلي هذا هو اسم المجلد تماماً كما مكتوب في GitHub
         script: |
           flutter packages get
       - name: Build APK
+        working_directory: btc_zones_scanner   # <-- نفس اسم المجلد هنا أيضاً
         script: |
           flutter build apk --release
     artifacts:
-      - build/**/outputs/**/*.apk
+      - btc_zones_scanner/build/**/outputs/**/*.apk
